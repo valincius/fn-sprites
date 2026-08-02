@@ -198,15 +198,11 @@ const App: Component = () => {
   );
 
   return (
-    <div class="p-4">
-      <div class="overflow-x-auto">
-        <div
-          class="grid gap-3"
-          style={{
-            "grid-template-columns": `minmax(180px, 1.5fr) repeat(${spriteVariants.length}, minmax(120px, 1fr))`,
-            "min-width": `${Math.max(180 + spriteVariants.length * 120, 900)}px`,
-          }}
-        >
+    <div class="w-full max-w-full p-2 sm:p-4">
+      <div
+        class="sprite-grid grid min-w-0 gap-3"
+        style={{ "--variant-count": spriteVariants.length }}
+      >
           <HeaderCell
             label="Sprite"
             count={collectedVisibleCount()}
@@ -221,6 +217,7 @@ const App: Component = () => {
 
               return (
                 <HeaderCell
+                  class="hidden md:flex"
                   label={normalizeVariantName(variant)}
                   count={
                     variantSprites.filter((sprite) =>
@@ -243,7 +240,6 @@ const App: Component = () => {
               />
             )}
           </For>
-        </div>
       </div>
     </div>
   );
@@ -258,10 +254,10 @@ const SpriteRow: Component<{
   const rowComplete = () => props.progress.complete;
 
   return (
-    <>
+    <div class="grid min-w-0 grid-cols-4 gap-2 rounded-lg bg-white/35 p-2 md:contents md:p-0">
       <div
         data-testid={`sprite-row-label-${props.name}`}
-        class={`flex flex-col items-center justify-center rounded-md px-4 py-2 text-center capitalize transition-colors ${
+        class={`col-span-4 flex min-w-0 flex-col items-center justify-center rounded-md px-2 py-2 text-center capitalize transition-colors md:col-auto md:px-4 ${
           rowComplete()
             ? "bg-slate-200/80 text-slate-500 ring-1 ring-slate-300"
             : rarityColors[getSpriteRarity(props.name)] || "bg-white"
@@ -284,7 +280,7 @@ const SpriteRow: Component<{
           return (
             <div
               data-testid={`sprite-row-cell-${props.name}-${variant}`}
-              class={`rounded-md p-2 align-middle transition-colors ${
+              class={`min-w-0 rounded-md p-1 align-middle transition-colors sm:p-2 ${
                 !sprite
                   ? "bg-transparent"
                   : rowComplete()
@@ -303,7 +299,7 @@ const SpriteRow: Component<{
           );
         }}
       </For>
-    </>
+    </div>
   );
 };
 
@@ -311,11 +307,12 @@ const HeaderCell: Component<{
   label: string;
   count: number;
   totalCount: number;
+  class?: string;
 }> = (props) => {
   return (
     <div
       data-testid={`header-${props.label.toLowerCase()}`}
-      class="flex flex-col rounded-md bg-purple-300/80 px-2 py-2 text-center font-medium"
+      class={`flex min-w-0 flex-col rounded-md bg-purple-300/80 px-2 py-2 text-center font-medium ${props.class ?? ""}`}
     >
       <span class="text-lg">{props.label}</span>
       <span class="text-xs text-purple-950/70">
@@ -341,9 +338,10 @@ const VariantCell: Component<{
   return (
     <button
       type="button"
+      aria-label={`${props.name} ${props.variant}`}
       aria-pressed={props.isCollected}
       onClick={() => props.onToggle(sprite.spriteId)}
-      class={`relative flex w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-md border p-2 transition-all duration-150 hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-purple-500 ${
+      class={`relative flex min-w-0 w-full cursor-pointer flex-col items-center justify-center gap-1 rounded-md border p-1 transition-all duration-150 hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-purple-500 sm:gap-2 sm:p-2 ${
         props.isCollected
           ? props.rowComplete
             ? "border-slate-300 bg-slate-200/70 shadow-none"
@@ -356,10 +354,14 @@ const VariantCell: Component<{
         alt={`${props.name} ${props.variant}`}
         height="60"
         width="60"
-        class={`rounded transition-all duration-150 ${
+        class={`h-auto max-w-full rounded transition-all duration-150 ${
           props.isCollected ? "scale-90 opacity-25 grayscale" : "opacity-100"
         }`}
       />
+
+      <span class="w-full truncate text-[10px] font-medium md:hidden">
+        {normalizeVariantName(props.variant)}
+      </span>
 
       <Show when={props.isCollected}>
         <span

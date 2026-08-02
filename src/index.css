@@ -1,1 +1,25 @@
 @import 'tailwindcss';
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.sprite-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 48rem) {
+  .sprite-grid {
+    grid-template-columns:
+      minmax(120px, 1.5fr)
+      repeat(var(--variant-count), minmax(0, 1fr));
+  }
+}
