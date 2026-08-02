@@ -16,6 +16,12 @@ type SpriteRecord = {
   url: string;
 };
 
+type SpriteProgress = {
+  collected: number;
+  total: number;
+  complete: boolean;
+};
+
 const STORAGE_KEY = "fn-sprites-collected";
 
 const sprites = spriteData as SpriteRecord[];
@@ -113,6 +119,10 @@ const spriteVariants = [
   );
 });
 
+const visibleSprites = sprites.filter((sprite) =>
+  spriteVariants.includes(sprite.variant),
+);
+
 const normalizeName = (name: string) => {
   if (nameMap[name]) {
     return nameMap[name];
@@ -158,14 +168,12 @@ const App: Component = () => {
   };
 
   const spriteProgress = createMemo(() => {
-    const progress: Record<
-      string,
-      { collected: number; total: number; complete: boolean }
-    > = {};
+    const progress: Record<string, SpriteProgress> = {};
 
     for (const name of spriteNames) {
       const variantsForSprite = sprites.filter(
-        (sprite) => sprite.parent === name,
+        (sprite) =>
+          sprite.parent === name && spriteVariants.includes(sprite.variant),
       );
       const collected = variantsForSprite.filter((sprite) =>
         collectedIds().has(sprite.spriteId),
@@ -183,6 +191,12 @@ const App: Component = () => {
     return progress;
   });
 
+  const collectedVisibleCount = createMemo(
+    () =>
+      visibleSprites.filter((sprite) => collectedIds().has(sprite.spriteId))
+        .length,
+  );
+
   return (
     <div class="p-4">
       <div class="overflow-x-auto">
@@ -193,55 +207,41 @@ const App: Component = () => {
             "min-width": `${Math.max(180 + spriteVariants.length * 120, 900)}px`,
           }}
         >
-          <HeaderCell label="Sprite" />
+          <HeaderCell
+            label="Sprite"
+            count={collectedVisibleCount()}
+            totalCount={visibleSprites.length}
+          />
 
           <For each={spriteVariants}>
-            {(variant) => <HeaderCell label={normalizeVariantName(variant)} />}
+            {(variant) => {
+              const variantSprites = visibleSprites.filter(
+                (sprite) => sprite.variant === variant,
+              );
+
+              return (
+                <HeaderCell
+                  label={normalizeVariantName(variant)}
+                  count={
+                    variantSprites.filter((sprite) =>
+                      collectedIds().has(sprite.spriteId),
+                    ).length
+                  }
+                  totalCount={variantSprites.length}
+                />
+              );
+            }}
           </For>
 
           <For each={spriteNames}>
-            {(name) => {
-              const progress = spriteProgress()[name];
-              const rowComplete = progress.complete;
-
-              return (
-                <>
-                  <div
-                    class={`flex flex-col items-center justify-center rounded-md px-4 py-2 text-center capitalize transition-colors ${
-                      rowComplete
-                        ? "bg-emerald-200 ring-2 ring-emerald-400 ring-offset-1"
-                        : rarityColors[getSpriteRarity(name)] || "bg-white"
-                    }`}
-                  >
-                    <span class="text-lg">{normalizeName(name)}</span>
-                    <span class="text-xs font-semibold text-slate-700">
-                      {progress.collected}/{progress.total}
-                    </span>
-                  </div>
-
-                  <For each={spriteVariants}>
-                    {(variant) => (
-                      <div
-                        class={`rounded-md p-2 align-middle transition-colors ${
-                          rowComplete
-                            ? "bg-emerald-100/90"
-                            : variantColors[variant] || "bg-white"
-                        }`}
-                      >
-                        <VariantCell
-                          name={name}
-                          variant={variant}
-                          isCollected={collectedIds().has(
-                            getSprite(name, variant)?.spriteId ?? "",
-                          )}
-                          onToggle={toggleCollected}
-                        />
-                      </div>
-                    )}
-                  </For>
-                </>
-              );
-            }}
+            {(name) => (
+              <SpriteRow
+                name={name}
+                progress={spriteProgress()[name]}
+                collectedIds={collectedIds()}
+                onToggle={toggleCollected}
+              />
+            )}
           </For>
         </div>
       </div>
@@ -249,10 +249,78 @@ const App: Component = () => {
   );
 };
 
-const HeaderCell: Component<{ label: string }> = (props) => {
+const SpriteRow: Component<{
+  name: string;
+  progress: SpriteProgress;
+  collectedIds: ReadonlySet<string>;
+  onToggle: (spriteId: string) => void;
+}> = (props) => {
+  const rowComplete = () => props.progress.complete;
+
   return (
-    <div class="rounded-md bg-purple-300/80 px-2 py-2 text-center text-lg font-medium">
-      {props.label}
+    <>
+      <div
+        data-testid={`sprite-row-label-${props.name}`}
+        class={`flex flex-col items-center justify-center rounded-md px-4 py-2 text-center capitalize transition-colors ${
+          rowComplete()
+            ? "bg-slate-200/80 text-slate-500 ring-1 ring-slate-300"
+            : rarityColors[getSpriteRarity(props.name)] || "bg-white"
+        }`}
+      >
+        <span class="text-lg">{normalizeName(props.name)}</span>
+        <span
+          class={`text-xs font-semibold ${
+            rowComplete() ? "text-slate-500" : "text-slate-700"
+          }`}
+        >
+          {props.progress.collected}/{props.progress.total}
+        </span>
+      </div>
+
+      <For each={spriteVariants}>
+        {(variant) => {
+          const sprite = getSprite(props.name, variant);
+
+          return (
+            <div
+              data-testid={`sprite-row-cell-${props.name}-${variant}`}
+              class={`rounded-md p-2 align-middle transition-colors ${
+                !sprite
+                  ? "bg-transparent"
+                  : rowComplete()
+                    ? "bg-slate-100/80"
+                    : variantColors[variant] || "bg-white"
+              }`}
+            >
+              <VariantCell
+                name={props.name}
+                variant={variant}
+                isCollected={props.collectedIds.has(sprite?.spriteId ?? "")}
+                rowComplete={rowComplete()}
+                onToggle={props.onToggle}
+              />
+            </div>
+          );
+        }}
+      </For>
+    </>
+  );
+};
+
+const HeaderCell: Component<{
+  label: string;
+  count: number;
+  totalCount: number;
+}> = (props) => {
+  return (
+    <div
+      data-testid={`header-${props.label.toLowerCase()}`}
+      class="flex flex-col rounded-md bg-purple-300/80 px-2 py-2 text-center font-medium"
+    >
+      <span class="text-lg">{props.label}</span>
+      <span class="text-xs text-purple-950/70">
+        {props.count}/{props.totalCount}
+      </span>
     </div>
   );
 };
@@ -261,12 +329,13 @@ const VariantCell: Component<{
   name: string;
   variant: string;
   isCollected: boolean;
+  rowComplete: boolean;
   onToggle: (spriteId: string) => void;
 }> = (props) => {
   const sprite = getSprite(props.name, props.variant);
 
   if (!sprite) {
-    return <span class="text-sm text-gray-500">-</span>;
+    return null;
   }
 
   return (
@@ -276,7 +345,9 @@ const VariantCell: Component<{
       onClick={() => props.onToggle(sprite.spriteId)}
       class={`relative flex w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-md border p-2 transition-all duration-150 hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-purple-500 ${
         props.isCollected
-          ? "border-emerald-500 bg-emerald-950/80 shadow-inner shadow-emerald-900/50"
+          ? props.rowComplete
+            ? "border-slate-300 bg-slate-200/70 shadow-none"
+            : "border-emerald-500 bg-emerald-950/80 shadow-inner shadow-emerald-900/50"
           : "border-transparent bg-white/20"
       }`}
     >
@@ -291,7 +362,11 @@ const VariantCell: Component<{
       />
 
       <Show when={props.isCollected}>
-        <span class="pointer-events-none absolute inset-0 flex items-center justify-center text-4xl font-black text-emerald-300 drop-shadow-sm">
+        <span
+          class={`pointer-events-none absolute inset-0 flex items-center justify-center text-4xl font-black drop-shadow-sm ${
+            props.rowComplete ? "text-slate-400" : "text-emerald-300"
+          }`}
+        >
           X
         </span>
       </Show>

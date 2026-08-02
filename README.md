@@ -33,4 +33,22 @@ Your app is ready to be deployed!
 
 You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
 
+### Docker Compose
+
+Build and start the production container:
+
+```bash
+docker compose up -d --build
+```
+
+The app is available at [http://localhost:3000](http://localhost:3000). To use a
+different host port, set `APP_PORT` when starting it:
+
+```bash
+APP_PORT=8080 docker compose up -d --build
+```
+
+Stop the container with `docker compose down`. The image uses an unprivileged
+Nginx server and includes a Docker health check.
+
 ## This project was created with the [Solid CLI](https://github.com/solidjs-community/solid-cli)
