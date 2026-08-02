@@ -1,43 +1,89 @@
 import { For, Show, type Component } from "solid-js";
+import spriteData from "./sprites.json";
 
-const spriteList = [
-  "air",
-  "batman",
-  "boss",
-  "burnt-peanut",
-  "drifter",
-  "duck",
-  "earth",
-  "fire",
-  "fishy",
-  "ghost",
-  "grim",
-  "king",
-  "punk",
-  "seven",
-  "sleepy",
-  "soccer",
-  "vini-jr",
-  "water",
-  "zero-point",
+type SpriteRecord = {
+  spriteId: string;
+  parent: string;
+  rarity: string;
+  variant: string;
+  url: string;
+};
+
+const sprites = spriteData as SpriteRecord[];
+
+const variantOrder = [
+  "base",
+  "candy",
+  "gold",
+  "galaxy",
+  "holofoil",
+  "cube",
+  "quack",
 ];
 
-const variants = ["base", "candy", "gold", "galaxy", "holo"];
+const rarityOrder = ["rare", "epic", "legendary", "mythic", "special"];
+
+const rarityColors: Record<string, string> = {
+  mythic: "bg-amber-200/80",
+  legendary: "bg-violet-200/80",
+  epic: "bg-fuchsia-200/80",
+  rare: "bg-sky-200/80",
+  special: "bg-zinc-200/80",
+};
+
+const variantColors: Record<string, string> = {
+  base: "bg-gray-200/80",
+  candy: "bg-pink-200/80",
+  gold: "bg-yellow-200/80",
+  galaxy: "bg-indigo-200/80",
+  holofoil: "bg-cyan-200/80",
+  cube: "bg-lime-200/80",
+  quack: "bg-orange-200/80",
+};
+
+const getSpriteRarity = (name: string) => {
+  const sprite = sprites.find((sprite) => sprite.parent === name);
+  return sprite ? sprite.rarity : "unknown";
+};
+
+const spriteNames = [...new Set(sprites.map((sprite) => sprite.parent))].sort(
+  (a, b) => {
+    return (
+      rarityOrder.indexOf(getSpriteRarity(a)) -
+        rarityOrder.indexOf(getSpriteRarity(b)) || a.localeCompare(b)
+    );
+  },
+);
+const spriteVariants = [
+  ...new Set(
+    sprites
+      .filter((sprite) => variantOrder.includes(sprite.variant))
+      .map((sprite) => sprite.variant),
+  ),
+].sort((a, b) => {
+  const indexA = variantOrder.indexOf(a);
+  const indexB = variantOrder.indexOf(b);
+
+  return (
+    (indexA === -1 ? Number.MAX_SAFE_INTEGER : indexA) -
+    (indexB === -1 ? Number.MAX_SAFE_INTEGER : indexB)
+  );
+});
 
 const App: Component = () => {
   return (
     <div class="p-4">
-      <div class="overflow-x-auto rounded-lg border border-gray-300 shadow-md">
+      <div class="overflow-x-auto shadow-md">
         <table class="min-w-full border-collapse">
           <thead>
-            <tr class="bg-gray-100">
-              <th class="border border-gray-300 px-4 py-2 text-left text-lg">
+            <tr class="bg-gray-100 *:text-center">
+              <th class="px-4 py-2 text-left text-lg bg-purple-300/80">
                 Sprite
               </th>
 
-              <For each={variants}>
+              <For each={spriteVariants}>
                 {(variant) => (
-                  <th class="border border-gray-300 px-4 py-1 text-left capitalize">
+                  <th class={`capitalize bg-purple-300/80`}>
                     {normalizeVariantName(variant)}
                   </th>
                 )}
@@ -46,25 +92,20 @@ const App: Component = () => {
           </thead>
 
           <tbody>
-            <For each={spriteList}>
+            <For each={spriteNames}>
               {(name) => (
-                <tr class="odd:bg-white even:bg-gray-50">
-                  <td class="border border-gray-300 px-4 py-1 text-lg capitalize">
-                    <div class="flex items-center gap-3">
-                      <img
-                        src={`/images/sprites/${name}/base.webp`}
-                        alt={`${name} base`}
-                        height="36"
-                        width="36"
-                        class="rounded"
-                      />
-                      <span>{normalizeName(name)}</span>
-                    </div>
+                <tr>
+                  <td
+                    class={`text-center text-lg capitalize ${rarityColors[getSpriteRarity(name)] || rarityColors.unknown}`}
+                  >
+                    <span>{normalizeName(name)}</span>
                   </td>
 
-                  <For each={variants}>
+                  <For each={spriteVariants}>
                     {(variant) => (
-                      <td class="border border-gray-300 px-4 py-3 align-middle">
+                      <td
+                        class={`px-4 py-2 align-middle ${variantColors[variant] || ""}`}
+                      >
                         <VariantCell name={name} variant={variant} />
                       </td>
                     )}
@@ -79,46 +120,59 @@ const App: Component = () => {
   );
 };
 
-const VariantCheckbox: Component<{ name: string; variant: string }> = (
-  props,
-) => {
-  return (
-    <div class="flex items-center gap-2">
-      <input type="checkbox" id={`${props.name}-${props.variant}`} />
-      <label for={`${props.name}-${props.variant}`} class="text-sm capitalize">
-        {normalizeVariantName(props.variant)}
-      </label>
-    </div>
+const getSprite = (name: string, variant: string) => {
+  return sprites.find(
+    (sprite) => sprite.parent === name && sprite.variant === variant,
   );
 };
 
 const VariantCell: Component<{ name: string; variant: string }> = (props) => {
-  const isUnavailable =
-    ["burnt-peanut", "vini-jr"].includes(props.name) &&
-    props.variant !== "base";
+  const sprite = getSprite(props.name, props.variant);
 
   return (
-    <Show
-      when={!isUnavailable}
-      fallback={<span class="text-sm text-gray-500">-</span>}
-    >
-      <div>
-        <VariantCheckbox name={props.name} variant={props.variant} />
+    <Show when={sprite} fallback={<span class="text-sm text-gray-500">-</span>}>
+      <div class={`flex flex-col items-center gap-2 rounded-md p-2`}>
+        <img
+          src={sprite!.url}
+          alt={`${props.name} ${props.variant}`}
+          height="48"
+          width="48"
+          class="rounded"
+        />
       </div>
     </Show>
   );
 };
 
 const normalizeVariantName = (variant: string) => {
-  if (variant === "candy") {
-    return "Gummy";
-  }
+  const normalized = variant.toLowerCase();
 
-  return variant.replace(/-/g, " ");
+  const variantMap: Record<string, string> = {
+    candy: "Gummy",
+  };
+
+  return variantMap[normalized] || normalized;
 };
 
 const normalizeName = (name: string) => {
-  return name.replace(/-/g, " ");
+  const nameMap: Record<string, string> = {
+    CokeParmesan: "Vini Jr",
+    CompanyStargazer: "Pollo",
+    PedicureAntacid: "Ironmouse",
+    FillerGrunt: "John Wick",
+    Spitfire: "Fire",
+  };
+
+  if (nameMap[name]) {
+    return nameMap[name];
+  }
+
+  return name
+    .replace(/([a-z])([A-Z])/g, "$1 $2")
+    .replace(/[_-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\b\w/g, (char) => char.toUpperCase());
 };
 
 export default App;

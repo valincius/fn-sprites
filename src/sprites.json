@@ -1,0 +1,828 @@
+[
+  {
+    "spriteId": "138",
+    "parent": "FillerGrunt",
+    "rarity": "mythic",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_Reload_FillerGrunt_icon_L.webp"
+  },
+  {
+    "spriteId": "139",
+    "parent": "Batman",
+    "rarity": "mythic",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_FossilMeal_Default_L.webp"
+  },
+  {
+    "spriteId": "146",
+    "parent": "Batman",
+    "rarity": "special",
+    "variant": "cube",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_FossilMeal_Cube_L.webp"
+  },
+  {
+    "spriteId": "140",
+    "parent": "Batman",
+    "rarity": "special",
+    "variant": "gold",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_FossilMeal_Gold_L.webp"
+  },
+  {
+    "spriteId": "141",
+    "parent": "Batman",
+    "rarity": "special",
+    "variant": "candy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_FossilMeal_Candy_L.webp"
+  },
+  {
+    "spriteId": "142",
+    "parent": "Batman",
+    "rarity": "special",
+    "variant": "galaxy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_FossilMeal_Galaxy_L.webp"
+  },
+  {
+    "spriteId": "145",
+    "parent": "Batman",
+    "rarity": "special",
+    "variant": "holofoil",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_FossilMeal_Holofoil_L.webp"
+  },
+  {
+    "spriteId": "1",
+    "parent": "Water",
+    "rarity": "rare",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Water_Unvault_Ch7S3_ui_L.webp"
+  },
+  {
+    "spriteId": "4",
+    "parent": "Water",
+    "rarity": "special",
+    "variant": "gold",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Water_Gold_ui_L.webp"
+  },
+  {
+    "spriteId": "84",
+    "parent": "Water",
+    "rarity": "special",
+    "variant": "quack",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Water_Quack_ui_L.webp"
+  },
+  {
+    "spriteId": "2",
+    "parent": "Water",
+    "rarity": "special",
+    "variant": "candy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Water_Candy_ui_L.webp"
+  },
+  {
+    "spriteId": "3",
+    "parent": "Water",
+    "rarity": "special",
+    "variant": "galaxy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Water_Galaxy_ui_L.webp"
+  },
+  {
+    "spriteId": "76",
+    "parent": "Water",
+    "rarity": "special",
+    "variant": "gem",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Water_Gem_ui_L.webp"
+  },
+  {
+    "spriteId": "43",
+    "parent": "Water",
+    "rarity": "special",
+    "variant": "holofoil",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Water_Holofoil_ui_L.webp"
+  },
+  {
+    "spriteId": "5",
+    "parent": "Earth",
+    "rarity": "rare",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Earth_Ch7S3_UI_L.webp"
+  },
+  {
+    "spriteId": "86",
+    "parent": "Earth",
+    "rarity": "special",
+    "variant": "cube",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Earth_Cube_ui_L.webp"
+  },
+  {
+    "spriteId": "8",
+    "parent": "Earth",
+    "rarity": "special",
+    "variant": "gold",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Earth_Gold_ui_L.webp"
+  },
+  {
+    "spriteId": "87",
+    "parent": "Earth",
+    "rarity": "special",
+    "variant": "quack",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Earth_Quack_ui_L.webp"
+  },
+  {
+    "spriteId": "6",
+    "parent": "Earth",
+    "rarity": "special",
+    "variant": "candy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Earth_Candy_ui_L.webp"
+  },
+  {
+    "spriteId": "7",
+    "parent": "Earth",
+    "rarity": "special",
+    "variant": "galaxy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Earth_Galaxy_ui_L.webp"
+  },
+  {
+    "spriteId": "45",
+    "parent": "Earth",
+    "rarity": "special",
+    "variant": "gem",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Earth_Gem_ui_L.webp"
+  },
+  {
+    "spriteId": "9",
+    "parent": "Spitfire",
+    "rarity": "rare",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fire_Unvault_Ch7S3_ui_L.webp"
+  },
+  {
+    "spriteId": "89",
+    "parent": "Spitfire",
+    "rarity": "special",
+    "variant": "cube",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fire_Cube_ui_L.webp"
+  },
+  {
+    "spriteId": "12",
+    "parent": "Spitfire",
+    "rarity": "special",
+    "variant": "gold",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fire_Gold_ui_L.webp"
+  },
+  {
+    "spriteId": "90",
+    "parent": "Spitfire",
+    "rarity": "special",
+    "variant": "quack",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fire_Quack_ui_L.webp"
+  },
+  {
+    "spriteId": "10",
+    "parent": "Spitfire",
+    "rarity": "special",
+    "variant": "candy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fire_Candy_ui_L.webp"
+  },
+  {
+    "spriteId": "11",
+    "parent": "Spitfire",
+    "rarity": "special",
+    "variant": "galaxy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fire_Galaxy_ui_L.webp"
+  },
+  {
+    "spriteId": "46",
+    "parent": "Spitfire",
+    "rarity": "special",
+    "variant": "holofoil",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fire_Holofoil_ui_L.webp"
+  },
+  {
+    "spriteId": "13",
+    "parent": "Duck",
+    "rarity": "epic",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Duck_Default_L.webp"
+  },
+  {
+    "spriteId": "16",
+    "parent": "Duck",
+    "rarity": "special",
+    "variant": "gold",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Duck_Gold_L.webp"
+  },
+  {
+    "spriteId": "14",
+    "parent": "Duck",
+    "rarity": "special",
+    "variant": "candy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Duck_Candy_L.webp"
+  },
+  {
+    "spriteId": "15",
+    "parent": "Duck",
+    "rarity": "special",
+    "variant": "galaxy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Duck_Galaxy_L.webp"
+  },
+  {
+    "spriteId": "44",
+    "parent": "Duck",
+    "rarity": "special",
+    "variant": "gem",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Duck_Gem_L.webp"
+  },
+  {
+    "spriteId": "17",
+    "parent": "Ghost",
+    "rarity": "epic",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Ghost_Unvault_L.webp"
+  },
+  {
+    "spriteId": "20",
+    "parent": "Ghost",
+    "rarity": "special",
+    "variant": "gold",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Ghost_Gold_L.webp"
+  },
+  {
+    "spriteId": "18",
+    "parent": "Ghost",
+    "rarity": "special",
+    "variant": "candy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Ghost_Candy_L.webp"
+  },
+  {
+    "spriteId": "19",
+    "parent": "Ghost",
+    "rarity": "special",
+    "variant": "galaxy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Ghost_Galaxy_L.webp"
+  },
+  {
+    "spriteId": "48",
+    "parent": "Ghost",
+    "rarity": "special",
+    "variant": "holofoil",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Ghost_Holo_L.webp"
+  },
+  {
+    "spriteId": "21",
+    "parent": "Sleepy",
+    "rarity": "legendary",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Sleepy_ui_L.webp"
+  },
+  {
+    "spriteId": "99",
+    "parent": "Sleepy",
+    "rarity": "special",
+    "variant": "cube",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Sleepy_Cube_ui_L.webp"
+  },
+  {
+    "spriteId": "24",
+    "parent": "Sleepy",
+    "rarity": "special",
+    "variant": "gold",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Sleepy_Gold_ui_L.webp"
+  },
+  {
+    "spriteId": "22",
+    "parent": "Sleepy",
+    "rarity": "special",
+    "variant": "candy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Sleepy_Candy_ui_L.webp"
+  },
+  {
+    "spriteId": "23",
+    "parent": "Sleepy",
+    "rarity": "special",
+    "variant": "galaxy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Sleepy_Galaxy_ui_L.webp"
+  },
+  {
+    "spriteId": "37",
+    "parent": "Demon",
+    "rarity": "epic",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_RedDemon_Default_L.webp"
+  },
+  {
+    "spriteId": "40",
+    "parent": "Demon",
+    "rarity": "special",
+    "variant": "gold",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_RedDemon_Gold_L.webp"
+  },
+  {
+    "spriteId": "38",
+    "parent": "Demon",
+    "rarity": "special",
+    "variant": "candy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_RedDemon_Candy_L.webp"
+  },
+  {
+    "spriteId": "39",
+    "parent": "Demon",
+    "rarity": "special",
+    "variant": "galaxy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_RedDemon_Galaxy_L.webp"
+  },
+  {
+    "spriteId": "47",
+    "parent": "Demon",
+    "rarity": "special",
+    "variant": "gem",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_RedDemon_Gem_L.webp"
+  },
+  {
+    "spriteId": "25",
+    "parent": "Punk",
+    "rarity": "legendary",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Punk_ui_L.webp"
+  },
+  {
+    "spriteId": "106",
+    "parent": "Punk",
+    "rarity": "special",
+    "variant": "cube",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Punk_Cube_ui_L.webp"
+  },
+  {
+    "spriteId": "28",
+    "parent": "Punk",
+    "rarity": "special",
+    "variant": "gold",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Punk_Gold_ui_L.webp"
+  },
+  {
+    "spriteId": "26",
+    "parent": "Punk",
+    "rarity": "special",
+    "variant": "candy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Punk_Candy_ui_L.webp"
+  },
+  {
+    "spriteId": "27",
+    "parent": "Punk",
+    "rarity": "special",
+    "variant": "galaxy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Punk_Galaxy_ui_L.webp"
+  },
+  {
+    "spriteId": "104",
+    "parent": "Punk",
+    "rarity": "special",
+    "variant": "gem",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Punk_Gem_ui_L.webp"
+  },
+  {
+    "spriteId": "29",
+    "parent": "King",
+    "rarity": "epic",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_King_ui_L.webp"
+  },
+  {
+    "spriteId": "32",
+    "parent": "King",
+    "rarity": "special",
+    "variant": "gold",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_King_Gold_ui_L.webp"
+  },
+  {
+    "spriteId": "30",
+    "parent": "King",
+    "rarity": "special",
+    "variant": "candy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_King_Candy_ui_L.webp"
+  },
+  {
+    "spriteId": "31",
+    "parent": "King",
+    "rarity": "special",
+    "variant": "galaxy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_King_Galaxy_ui_L.webp"
+  },
+  {
+    "spriteId": "73",
+    "parent": "King",
+    "rarity": "special",
+    "variant": "holofoil",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_King_Holofoil_ui_L.webp"
+  },
+  {
+    "spriteId": "41",
+    "parent": "BurntPeanut",
+    "rarity": "mythic",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_BurntPeanut_ui_L.webp"
+  },
+  {
+    "spriteId": "149",
+    "parent": "CokeParmesan",
+    "rarity": "mythic",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_CokeParmesan_Default_L.webp"
+  },
+  {
+    "spriteId": "33",
+    "parent": "ZeroPoint",
+    "rarity": "mythic",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_ZeroPoint_ui_L.webp"
+  },
+  {
+    "spriteId": "112",
+    "parent": "ZeroPoint",
+    "rarity": "special",
+    "variant": "cube",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_ZeroPoint_Cube_ui_L.webp"
+  },
+  {
+    "spriteId": "36",
+    "parent": "ZeroPoint",
+    "rarity": "special",
+    "variant": "gold",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_ZeroPoint_Gold_ui_L.webp"
+  },
+  {
+    "spriteId": "113",
+    "parent": "ZeroPoint",
+    "rarity": "special",
+    "variant": "quack",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_ZeroPoint_Quack_ui_L.webp"
+  },
+  {
+    "spriteId": "34",
+    "parent": "ZeroPoint",
+    "rarity": "special",
+    "variant": "candy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_ZeroPoint_Candy_ui_L.webp"
+  },
+  {
+    "spriteId": "35",
+    "parent": "ZeroPoint",
+    "rarity": "special",
+    "variant": "galaxy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_ZeroPoint_Galaxy_ui_L.webp"
+  },
+  {
+    "spriteId": "82",
+    "parent": "ZeroPoint",
+    "rarity": "special",
+    "variant": "gem",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_ZeroPoint_Gem_ui_L.webp"
+  },
+  {
+    "spriteId": "111",
+    "parent": "ZeroPoint",
+    "rarity": "special",
+    "variant": "holofoil",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_ZeroPoint_Holofoil_ui_L.webp"
+  },
+  {
+    "spriteId": "58",
+    "parent": "Fishy",
+    "rarity": "rare",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fishy_ui_L.webp"
+  },
+  {
+    "spriteId": "116",
+    "parent": "Fishy",
+    "rarity": "special",
+    "variant": "cube",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fishy_Cube_L.webp"
+  },
+  {
+    "spriteId": "61",
+    "parent": "Fishy",
+    "rarity": "special",
+    "variant": "gold",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fishy_Gold_ui_L.webp"
+  },
+  {
+    "spriteId": "59",
+    "parent": "Fishy",
+    "rarity": "special",
+    "variant": "candy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fishy_Candy_ui_L.webp"
+  },
+  {
+    "spriteId": "60",
+    "parent": "Fishy",
+    "rarity": "special",
+    "variant": "galaxy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fishy_Galaxy_ui_L.webp"
+  },
+  {
+    "spriteId": "62",
+    "parent": "Soccer",
+    "rarity": "epic",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Soccer_ui_L.webp"
+  },
+  {
+    "spriteId": "65",
+    "parent": "Soccer",
+    "rarity": "special",
+    "variant": "gold",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Soccer_Gold_L.webp"
+  },
+  {
+    "spriteId": "63",
+    "parent": "Soccer",
+    "rarity": "special",
+    "variant": "candy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Soccer_Candy_L.webp"
+  },
+  {
+    "spriteId": "64",
+    "parent": "Soccer",
+    "rarity": "special",
+    "variant": "galaxy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Soccer_Galaxy_L.webp"
+  },
+  {
+    "spriteId": "66",
+    "parent": "Soccer",
+    "rarity": "special",
+    "variant": "holofoil",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Soccer_Holofoil_L.webp"
+  },
+  {
+    "spriteId": "67",
+    "parent": "Drifter",
+    "rarity": "epic",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Drifter_ui_L.webp"
+  },
+  {
+    "spriteId": "71",
+    "parent": "Drifter",
+    "rarity": "special",
+    "variant": "gold",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Drifter_Gold_ui_L.webp"
+  },
+  {
+    "spriteId": "68",
+    "parent": "Drifter",
+    "rarity": "special",
+    "variant": "candy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Drifter_Candy_ui_L.webp"
+  },
+  {
+    "spriteId": "69",
+    "parent": "Drifter",
+    "rarity": "special",
+    "variant": "galaxy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Drifter_Galaxy_ui_L.webp"
+  },
+  {
+    "spriteId": "70",
+    "parent": "Drifter",
+    "rarity": "special",
+    "variant": "gem",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Drifter_Gem_ui_L.webp"
+  },
+  {
+    "spriteId": "49",
+    "parent": "Boss",
+    "rarity": "legendary",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Boss_ui_L.webp"
+  },
+  {
+    "spriteId": "126",
+    "parent": "Boss",
+    "rarity": "special",
+    "variant": "cube",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Boss_Cube_ui_L.webp"
+  },
+  {
+    "spriteId": "50",
+    "parent": "Boss",
+    "rarity": "special",
+    "variant": "gold",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Boss_Gold_ui_L.webp"
+  },
+  {
+    "spriteId": "51",
+    "parent": "Boss",
+    "rarity": "special",
+    "variant": "candy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Boss_Candy_ui_L.webp"
+  },
+  {
+    "spriteId": "52",
+    "parent": "Boss",
+    "rarity": "special",
+    "variant": "galaxy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Boss_Galaxy_ui_L.webp"
+  },
+  {
+    "spriteId": "78",
+    "parent": "Grim",
+    "rarity": "mythic",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_GrimReaper_Default_L.webp"
+  },
+  {
+    "spriteId": "130",
+    "parent": "Grim",
+    "rarity": "special",
+    "variant": "cube",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_GrimReaper_Cube_L.webp"
+  },
+  {
+    "spriteId": "81",
+    "parent": "Grim",
+    "rarity": "special",
+    "variant": "gold",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_GrimReaper_Gold_L.webp"
+  },
+  {
+    "spriteId": "79",
+    "parent": "Grim",
+    "rarity": "special",
+    "variant": "candy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_GrimReaper_Candy_L.webp"
+  },
+  {
+    "spriteId": "80",
+    "parent": "Grim",
+    "rarity": "special",
+    "variant": "galaxy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_GrimReaper_Galaxy_L.webp"
+  },
+  {
+    "spriteId": "128",
+    "parent": "Grim",
+    "rarity": "special",
+    "variant": "gem",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_GrimReaper_Gem_L.webp"
+  },
+  {
+    "spriteId": "129",
+    "parent": "Grim",
+    "rarity": "special",
+    "variant": "holofoil",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_GrimReaper_Holofoil_L.webp"
+  },
+  {
+    "spriteId": "74",
+    "parent": "Air",
+    "rarity": "rare",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Air_Default_L.webp"
+  },
+  {
+    "spriteId": "42",
+    "parent": "Air",
+    "rarity": "special",
+    "variant": "gold",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Air_Gold_L.webp"
+  },
+  {
+    "spriteId": "72",
+    "parent": "Air",
+    "rarity": "special",
+    "variant": "candy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Air_Candy_L.webp"
+  },
+  {
+    "spriteId": "75",
+    "parent": "Air",
+    "rarity": "special",
+    "variant": "galaxy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Air_Galaxy_L.webp"
+  },
+  {
+    "spriteId": "77",
+    "parent": "Air",
+    "rarity": "special",
+    "variant": "holofoil",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Air_Holo_L.webp"
+  },
+  {
+    "spriteId": "53",
+    "parent": "Seven",
+    "rarity": "legendary",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Seven_ui_L.webp"
+  },
+  {
+    "spriteId": "56",
+    "parent": "Seven",
+    "rarity": "special",
+    "variant": "gold",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Seven_Gold_ui_L.webp"
+  },
+  {
+    "spriteId": "54",
+    "parent": "Seven",
+    "rarity": "special",
+    "variant": "candy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Seven_Candy_ui_L.webp"
+  },
+  {
+    "spriteId": "55",
+    "parent": "Seven",
+    "rarity": "special",
+    "variant": "galaxy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Seven_Galaxy_ui_L.webp"
+  },
+  {
+    "spriteId": "57",
+    "parent": "Seven",
+    "rarity": "special",
+    "variant": "holofoil",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Seven_Holofoil_ui_L.webp"
+  },
+  {
+    "spriteId": "150",
+    "parent": "PedicureAntacid",
+    "rarity": "mythic",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_PedicureAntacid_L.webp"
+  },
+  {
+    "spriteId": "148",
+    "parent": "CompanyStargazer",
+    "rarity": "mythic",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_CompanyStargazer_Default_L.webp"
+  },
+  {
+    "spriteId": "151",
+    "parent": "Llama",
+    "rarity": "legendary",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Llama_ui_L.webp"
+  },
+  {
+    "spriteId": "152",
+    "parent": "Llama",
+    "rarity": "special",
+    "variant": "gold",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Llama_Gold_ui_L.webp"
+  },
+  {
+    "spriteId": "153",
+    "parent": "Llama",
+    "rarity": "special",
+    "variant": "candy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Llama_Candy_ui_L.webp"
+  },
+  {
+    "spriteId": "154",
+    "parent": "Llama",
+    "rarity": "special",
+    "variant": "galaxy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Llama_Galaxy_ui_L.webp"
+  },
+  {
+    "spriteId": "155",
+    "parent": "Llama",
+    "rarity": "special",
+    "variant": "gem",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Llama_Gem_ui_L.webp"
+  },
+  {
+    "spriteId": "156",
+    "parent": "Peely",
+    "rarity": "legendary",
+    "variant": "base",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Peely_ui_L.webp"
+  },
+  {
+    "spriteId": "157",
+    "parent": "Peely",
+    "rarity": "special",
+    "variant": "gold",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Peely_Gold_ui_L.webp"
+  },
+  {
+    "spriteId": "158",
+    "parent": "Peely",
+    "rarity": "special",
+    "variant": "candy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Peely_Candy_ui_L.webp"
+  },
+  {
+    "spriteId": "159",
+    "parent": "Peely",
+    "rarity": "special",
+    "variant": "galaxy",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Peely_Galaxy_ui_L.webp"
+  },
+  {
+    "spriteId": "160",
+    "parent": "Peely",
+    "rarity": "special",
+    "variant": "holofoil",
+    "url": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Peely_Holofoil_ui_L.webp"
+  }
+]
