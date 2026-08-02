@@ -73,48 +73,48 @@ const spriteVariants = [
 const App: Component = () => {
   return (
     <div class="p-4">
-      <div class="overflow-x-auto shadow-md">
-        <table class="min-w-full border-collapse">
-          <thead>
-            <tr class="bg-gray-100 *:text-center">
-              <th class="px-4 py-2 text-left text-lg bg-purple-300/80">
-                Sprite
-              </th>
+      <div class="overflow-x-auto">
+        <div
+          class="grid gap-2"
+          style={{
+            "grid-template-columns": `minmax(180px, 1.5fr) repeat(${spriteVariants.length}, minmax(120px, 1fr))`,
+            "min-width": `${Math.max(180 + spriteVariants.length * 120, 900)}px`,
+          }}
+        >
+          <div class="rounded-md bg-purple-300/80 px-4 py-2 text-left text-lg font-medium">
+            Sprite
+          </div>
 
-              <For each={spriteVariants}>
-                {(variant) => (
-                  <th class={`capitalize bg-purple-300/80`}>
-                    {normalizeVariantName(variant)}
-                  </th>
-                )}
-              </For>
-            </tr>
-          </thead>
+          <For each={spriteVariants}>
+            {(variant) => (
+              <div class="rounded-md bg-purple-300/80 px-2 py-2 text-center capitalize">
+                {normalizeVariantName(variant)}
+              </div>
+            )}
+          </For>
 
-          <tbody>
-            <For each={spriteNames}>
-              {(name) => (
-                <tr>
-                  <td
-                    class={`text-center text-lg capitalize ${rarityColors[getSpriteRarity(name)] || rarityColors.unknown}`}
-                  >
-                    <span>{normalizeName(name)}</span>
-                  </td>
+          <For each={spriteNames}>
+            {(name) => (
+              <>
+                <div
+                  class={`flex items-center justify-center rounded-md px-4 py-2 text-center text-lg capitalize ${rarityColors[getSpriteRarity(name)] || "bg-white"}`}
+                >
+                  {normalizeName(name)}
+                </div>
 
-                  <For each={spriteVariants}>
-                    {(variant) => (
-                      <td
-                        class={`px-4 py-2 align-middle ${variantColors[variant] || ""}`}
-                      >
-                        <VariantCell name={name} variant={variant} />
-                      </td>
-                    )}
-                  </For>
-                </tr>
-              )}
-            </For>
-          </tbody>
-        </table>
+                <For each={spriteVariants}>
+                  {(variant) => (
+                    <div
+                      class={`rounded-md p-2 align-middle ${variantColors[variant] || "bg-white"}`}
+                    >
+                      <VariantCell name={name} variant={variant} />
+                    </div>
+                  )}
+                </For>
+              </>
+            )}
+          </For>
+        </div>
       </div>
     </div>
   );
@@ -135,8 +135,8 @@ const VariantCell: Component<{ name: string; variant: string }> = (props) => {
         <img
           src={sprite!.url}
           alt={`${props.name} ${props.variant}`}
-          height="48"
-          width="48"
+          height="60"
+          width="60"
           class="rounded"
         />
       </div>
