@@ -34,6 +34,7 @@ const variantOrder = [
   "holofoil",
   "cube",
   "quack",
+  "gem",
 ];
 
 const rarityOrder = ["rare", "epic", "legendary", "mythic", "special"];
@@ -54,6 +55,7 @@ const variantColors: Record<string, string> = {
   holofoil: "bg-cyan-200/80",
   cube: "bg-lime-200/80",
   quack: "bg-orange-200/80",
+  gem: "bg-emerald-200/80",
 };
 
 const nameMap: Record<string, string> = {
@@ -203,43 +205,43 @@ const App: Component = () => {
         class="sprite-grid grid min-w-0 gap-3"
         style={{ "--variant-count": spriteVariants.length }}
       >
-          <HeaderCell
-            label="Sprite"
-            count={collectedVisibleCount()}
-            totalCount={visibleSprites.length}
-          />
+        <HeaderCell
+          label="Sprite"
+          count={collectedVisibleCount()}
+          totalCount={visibleSprites.length}
+        />
 
-          <For each={spriteVariants}>
-            {(variant) => {
-              const variantSprites = visibleSprites.filter(
-                (sprite) => sprite.variant === variant,
-              );
+        <For each={spriteVariants}>
+          {(variant) => {
+            const variantSprites = visibleSprites.filter(
+              (sprite) => sprite.variant === variant,
+            );
 
-              return (
-                <HeaderCell
-                  class="hidden md:flex"
-                  label={normalizeVariantName(variant)}
-                  count={
-                    variantSprites.filter((sprite) =>
-                      collectedIds().has(sprite.spriteId),
-                    ).length
-                  }
-                  totalCount={variantSprites.length}
-                />
-              );
-            }}
-          </For>
-
-          <For each={spriteNames}>
-            {(name) => (
-              <SpriteRow
-                name={name}
-                progress={spriteProgress()[name]}
-                collectedIds={collectedIds()}
-                onToggle={toggleCollected}
+            return (
+              <HeaderCell
+                class="hidden md:flex"
+                label={normalizeVariantName(variant)}
+                count={
+                  variantSprites.filter((sprite) =>
+                    collectedIds().has(sprite.spriteId),
+                  ).length
+                }
+                totalCount={variantSprites.length}
               />
-            )}
-          </For>
+            );
+          }}
+        </For>
+
+        <For each={spriteNames}>
+          {(name) => (
+            <SpriteRow
+              name={name}
+              progress={spriteProgress()[name]}
+              collectedIds={collectedIds()}
+              onToggle={toggleCollected}
+            />
+          )}
+        </For>
       </div>
     </div>
   );
