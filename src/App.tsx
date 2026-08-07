@@ -193,6 +193,29 @@ const App: Component = () => {
     return progress;
   });
 
+  const variantProgress = createMemo(() => {
+    const progress: Record<string, SpriteProgress> = {};
+
+    for (const variant of spriteVariants) {
+      const spritesForVariant = sprites.filter(
+        (sprite) =>
+          sprite.variant === variant && spriteNames.includes(sprite.parent),
+      );
+      const collected = spritesForVariant.filter((sprite) =>
+        collectedIds().has(sprite.spriteId),
+      ).length;
+
+      progress[variant] = {
+        collected,
+        total: spritesForVariant.length,
+        complete:
+          spritesForVariant.length > 0 &&
+          collected === spritesForVariant.length,
+      };
+    }
+    return progress;
+  });
+
   const collectedVisibleCount = createMemo(
     () =>
       visibleSprites.filter((sprite) => collectedIds().has(sprite.spriteId))
@@ -219,7 +242,7 @@ const App: Component = () => {
 
             return (
               <HeaderCell
-                class="hidden md:flex"
+                class={`hidden md:flex ${variantProgress()[variant].complete ? "bg-slate-200/80 text-slate-500 ring-1 ring-slate-300" : ""}`}
                 label={normalizeVariantName(variant)}
                 count={
                   variantSprites.filter((sprite) =>
